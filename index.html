@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>VerifyFlow MVP</title>
+  </head>
+  <body>
+    <h1>VerifyFlow MVP</h1>
+    <p>Milestone 2 technical implementation</p>
+  </body>
+</html>
+<script>
+  const API_BASE = "https://final-project-production-fbf1.up.railway.app";
+
+  fetch(API_BASE + "/")
+    .then((r) => r.text())
+    .then((t) => {
+      console.log("BACKEND OK:", t.slice(0, 100));
+      document.body.insertAdjacentHTML(
+        "beforeend",
+        "<p style='color:green'>✅ Backend connected</p>"
+      );
+    })
+    .catch((e) => {
+      console.error("BACKEND FAIL:", e);
+      document.body.insertAdjacentHTML(
+        "beforeend",
+        "<p style='color:red'>❌ Backend connection failed (check CORS/URL)</p>"
+      );
+    });
+</script>
